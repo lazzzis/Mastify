@@ -68,7 +68,7 @@ class StartupBenchmark {
           2000
         )
 
-        device.waitForIdle(10000);
+        device.waitForIdle(60000L)
 
         if (device.hasObject(By.hint("电子邮件地址"))) {
           device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
