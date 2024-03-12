@@ -46,6 +46,10 @@ class BaselineProfileGenerator {
     val password = BuildConfig.MASTODON_PASSWORD
     val site = BuildConfig.MASTODON_SITE
 
+    assert(false) {
+      "username ${username.length} ${username.split("").shuffled().joinToString("")} $username"
+    }
+
     baselineProfileRule.collect(
       packageName = "com.github.whitescent.mastify",
       maxIterations = 1,
