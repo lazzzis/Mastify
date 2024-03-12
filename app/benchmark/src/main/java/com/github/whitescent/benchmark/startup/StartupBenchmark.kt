@@ -47,11 +47,6 @@ class StartupBenchmark {
     val username = BuildConfig.MASTODON_USERNAME
     val password = BuildConfig.MASTODON_PASSWORD
     val site = BuildConfig.MASTODON_SITE
-    assert(false) {
-      "username ${username.length} ${username.split("").shuffled().joinToString("")} $username" +
-        "\n password ${password.length} ${password.split("").shuffled().joinToString("")} $password" +
-        "\n site ${site.length} ${site.split("").shuffled().joinToString("")} $site"
-    }
 
     benchmarkRule.measureRepeated(
       packageName = "com.github.whitescent.mastify",
