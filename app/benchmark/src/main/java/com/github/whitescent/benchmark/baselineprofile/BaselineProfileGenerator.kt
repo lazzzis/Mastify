@@ -47,7 +47,9 @@ class BaselineProfileGenerator {
     val site = BuildConfig.MASTODON_SITE
 
     assert(false) {
-      "username ${username.length} ${username.split("").shuffled().joinToString("")} $username"
+      "username ${username.length} ${username.split("").shuffled().joinToString("")} $username" +
+        "\n password ${password.length} ${password.split("").shuffled().joinToString("")} $password" +
+        "\n site ${site.length} ${site.split("").shuffled().joinToString("")} $site"
     }
 
     baselineProfileRule.collect(
