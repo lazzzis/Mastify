@@ -82,4 +82,4 @@ jobs:
         if: failure()
         with:
           name: Benchmark Results
-          path: app/benchmark/build/reports/androidTests/connected/benchmark/index.html
+          path: app/benchmark/build/reports/androidTests/connected/benchmark
