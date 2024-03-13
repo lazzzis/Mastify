@@ -69,6 +69,12 @@ class StartupBenchmark {
           2000
         )
 
+        // Skip chrome's login screen, which is launched when chrome has never been used before
+        device.waitForIdle(3000L)
+        if (device.hasObject(By.text("Use without an account"))) {
+          device.findObject(By.text("Use without an account")).click()
+        }
+
         try {
           device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
           device.waitForObject(By.hint("密码"), 5000L).text = password
