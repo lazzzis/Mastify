@@ -67,10 +67,10 @@ class BaselineProfileGenerator {
         )
 
         // Skip chrome's login screen, which is launched when chrome has never been used before
-        device.waitForIdle(3000L)
-        if (device.hasObject(By.text("Use without an account"))) {
+        try {
+          device.waitForObject(By.text("Use without an account"), 3000L)
           device.findObject(By.text("Use without an account")).click()
-        }
+        } catch (e:IllegalStateException) {}
 
         try {
           device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
