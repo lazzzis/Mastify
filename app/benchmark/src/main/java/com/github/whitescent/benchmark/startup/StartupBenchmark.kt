@@ -74,6 +74,7 @@ class StartupBenchmark {
           device.waitForObject(By.text("Use without an account"), 3000L)
           device.findObject(By.text("Use without an account")).click()
         } catch (e:IllegalStateException) {}
+          catch (e:NullPointerException) {}
 
         try {
           device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
