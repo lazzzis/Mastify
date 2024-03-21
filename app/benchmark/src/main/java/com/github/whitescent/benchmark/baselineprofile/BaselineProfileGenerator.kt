@@ -72,18 +72,18 @@ class BaselineProfileGenerator {
           device.findObject(By.text("Use without an account")).click()
         } catch (e:IllegalStateException) {}
 
-        try {
-          device.waitForObject(By.text("Got it"), 3000L)
-          device.findObject(By.text("Got it")).click()
-        } catch (e:IllegalStateException) {}
-        catch (e:NullPointerException) {}
+        // try {
+        //   device.waitForObject(By.text("Got it"), 3000L)
+        //   device.findObject(By.text("Got it")).click()
+        // } catch (e:IllegalStateException) {}
+        // catch (e:NullPointerException) {}
 
-        try {
+        // try {
           device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
           device.waitForObject(By.hint("密码"), 5000L).text = password
           device.findObject(By.text("登录")).click()
-        } catch (e: IllegalStateException) {}
-        catch (e:NullPointerException) {}
+        // } catch (e: IllegalStateException) {}
+        // catch (e:NullPointerException) {}
 
         device.waitForObject(By.text("同意授权"), 5000L)
         device.findObject(By.text("同意授权")).click()
