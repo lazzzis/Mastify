@@ -70,6 +70,7 @@ class StartupBenchmark {
 
         device.waitForIdle()
         try {
+          // User might have logged in web app.
           device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
           device.waitForObject(By.hint("密码"), 5000L).text = password
           device.waitForObject(By.text("登录"), 1000L).click()

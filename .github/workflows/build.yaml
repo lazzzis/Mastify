@@ -77,6 +77,7 @@ jobs:
           profile: pixel_6_pro
           target: google_apis
           script: |
+            adb shell svc power stayon usb
             adb shell am set-debug-app --persistent com.android.chrome
             adb shell 'echo "chrome --disable-fre --disable-startup-promos-for-testing --disable-default-browser-promo --no-default-browser-check --no-first-run --disable-features=NotificationPermissionVariant<MyStudy" > /data/local/tmp/chrome-command-line'
             ./gradlew app:benchmark:connectedBenchmarkAndroidTest
