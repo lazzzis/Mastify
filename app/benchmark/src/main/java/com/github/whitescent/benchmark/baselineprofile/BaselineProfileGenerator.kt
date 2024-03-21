@@ -30,6 +30,7 @@ import com.github.whitescent.benchmark.utils.waitForObject
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.lang.IllegalStateException
 
 @RunWith(AndroidJUnit4::class)
 class BaselineProfileGenerator {
@@ -65,9 +66,12 @@ class BaselineProfileGenerator {
           2000
         )
 
-        device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
-        device.waitForObject(By.hint("密码"), 5000L).text = password
-        device.waitForObject(By.text("登录"), 1000L).click()
+        try {
+          // User has logged in the web app.
+          device.waitForObject(By.hint("电子邮件地址"), 1500L).text = username
+          device.waitForObject(By.hint("密码"), 1000L).text = password
+          device.waitForObject(By.text("登录"), 1000L).click()
+        } catch (_: IllegalStateException) {}
 
         device.waitForObject(By.text("同意授权"), 5000L)
         device.findObject(By.text("同意授权")).click()
