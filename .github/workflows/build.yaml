@@ -65,7 +65,6 @@ jobs:
         run: ./gradlew app:testDebugUnitTest
 
       # Setup benchmarks
-      # The adb commands force the emulator to stay awake and skip chrome's welcome screen.
       - name: Run benchmarks
         env:
           MASTODON_USERNAME: ${{ secrets.MASTODON_USERNAME }}
@@ -75,8 +74,10 @@ jobs:
         with:
           api-level: 34
           arch: x86_64
-          profile: pixel_6_pro
           target: google_apis
+          # Prefer a large screen; otherwise, buttons might not be visible on small screens.
+          profile: pixel_6_pro
+          # The adb commands force the emulator to stay awake and skip chrome's welcome screen.
           script: |
             adb shell svc power stayon usb
             adb shell am set-debug-app --persistent com.android.chrome
