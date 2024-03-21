@@ -87,6 +87,7 @@ class StartupBenchmark {
           device.waitForObject(By.hint("密码"), 5000L).text = password
           device.findObject(By.text("登录")).click()
         } catch (e: IllegalStateException) {}
+        catch (e:NullPointerException) {}
 
         device.waitForObject(By.text("同意授权"), 5000L)
         device.findObject(By.text("同意授权")).click()
