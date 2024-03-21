@@ -68,12 +68,17 @@ class StartupBenchmark {
           2000
         )
 
-        device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
-        device.waitForObject(By.hint("密码"), 5000L).text = password
-        device.waitForObject(By.text("登录"), 5000L).click()
+        device.waitForIdle()
+        try {
+          device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
+          device.waitForObject(By.hint("密码"), 5000L).text = password
+          device.waitForObject(By.text("登录"), 1000L).click()
+        } catch (_: IllegalStateException) {}
 
+        device.waitForIdle()
         device.waitForObject(By.text("同意授权"), 5000L).click()
 
+        device.waitForIdle()
         device.waitForObject(By.res("home timeline"), 5000L)
       }
 
