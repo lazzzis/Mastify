@@ -71,16 +71,16 @@ class StartupBenchmark {
         device.waitForIdle()
         try {
           // User might have logged in web app.
-          device.waitForObject(By.hint("电子邮件地址"), 5000L).text = username
+          device.waitForObject(By.hint("电子邮件地址"), 10000L).text = username
           device.waitForObject(By.hint("密码"), 5000L).text = password
           device.waitForObject(By.text("登录"), 1000L).click()
         } catch (_: IllegalStateException) {}
 
         device.waitForIdle()
-        device.waitForObject(By.text("同意授权"), 5000L).click()
+        device.waitForObject(By.text("同意授权"), 10000L).click()
 
         device.waitForIdle()
-        device.waitForObject(By.res("home timeline"), 5000L)
+        device.waitForObject(By.res("home timeline"), 10000L)
       }
 
       val column = device.findObject(By.res("home timeline"))
