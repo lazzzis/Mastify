@@ -74,6 +74,7 @@ jobs:
         with:
           api-level: 34
           arch: x86_64
+          profile: pixel_6_pro
           target: google_apis
           script: |
             adb shell am set-debug-app --persistent com.android.chrome
