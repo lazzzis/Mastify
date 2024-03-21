@@ -65,6 +65,7 @@ jobs:
         run: ./gradlew app:testDebugUnitTest
 
       # Setup benchmarks
+      # The adb commands force the emulator to stay awake and skip chrome's welcome screen.
       - name: Run benchmarks
         env:
           MASTODON_USERNAME: ${{ secrets.MASTODON_USERNAME }}
